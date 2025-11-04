@@ -141,7 +141,7 @@ export const BGEffect = () => {
   }, [])
 
   return (
-    <div className="bg-effect">
+    <div className="bg-effect" >
       <canvas ref={ref} />
     </div>
   )

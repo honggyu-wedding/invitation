@@ -11,7 +11,8 @@ export const Location = () => {
         <h2 className="english">Location</h2>
         <div className="addr">
           {LOCATION}
-          <div className="detail">{LOCATION_ADDRESS}</div>
+          <div className="detail">{LOCATION_ADDRESS.key1}</div>
+          <div className="detail">{LOCATION_ADDRESS.key2}</div>
         </div>
         <Map />
       </LazyDiv>
@@ -25,26 +26,26 @@ export const Location = () => {
           <div className="content">
             * 지하철 이용시
             <br />
-            지하철 2호선 <b>낙성대역 4번출구</b> 나와서
+            지하철 수인분당선 이용 시 <b>서울숲역 5번출구</b> 
             <br />
-            → 첫번째 골목 끼고 좌회전
-            <br />→ 마을버스 <b>관악 02번</b> 승차
-            <br />→ <b>서울대후문·연구공원 정류장</b> 하차
+            &nbsp;&nbsp;→ 도보 최대 <b>5분</b>
             <br />
-            → 길 건너 간판 참고해 도보로 100m 이동
+            지하철 2호선 <b>뚝섬역 8번출구</b> 
             <br />
-            검은색 피라미드 유리 건물입니다.
+            &nbsp;&nbsp;→ 도보 최대 <b>10분</b>
+            
           </div>
           <div />
           <div className="content">
             * 버스 이용 시
             <br />
-            - 간선(파랑): 461, 641
+             간선버스 <b>141, 145, 148, 463</b> 승차 시
+            <br />&nbsp;&nbsp;→ <b>뚝섬 서울숲</b> 정류장 하차
             <br />
-            - 지선(초록): 5413, 5524, 5528
+             간선/지선버스 <b>121, 2014, 2224, 2413</b> 승차 시
+            <br />&nbsp;&nbsp;→ <b>성동구민 종합 체육센터</b> 정류장하차
             <br />
-            반드시 <b>낙성대입구</b> 하차
-            <br />→ 마을버스 <b>관악 02번</b> 이용
+          
             <br />
             이하 위와 동일합니다.
           </div>
@@ -58,18 +59,16 @@ export const Location = () => {
           <div className="content">
             네이버 지도, 카카오 네비, 티맵 등 이용
             <br />
-            <b>서울대학교 연구공원 웨딩홀</b> 검색
+            <b>보테가마지오</b> 검색
             <br />
-            - 주차 요금은 무료입니다.
-            <br />
-            (주차장 이용 시 웨딩홀과 바로 연결)
           </div>
           <div />
           <div className="content">
             <b>
-              ※ 서울대학교 정, 후문을 통과할 경우 통행료가 발생하므로
-              유의바랍니다. 낙성대 방향으로 이용해주세요.
+              ※ 건물 내 지하 (B3-B7) 2시간 무료주차
             </b>
+            <br />
+            &nbsp;&nbsp;&nbsp;<b>(안내데스크 주차 등록)</b>
           </div>
         </div>
       </LazyDiv>

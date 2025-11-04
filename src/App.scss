@@ -11,16 +11,17 @@
 @use "./component/shareButton";
 
 :root {
-  --theme-color: #ff8585;
-  --theme-bg-color: #ffe7e7;
+  --theme-color: #d36d7d;
+  --theme-bg-color: #a3b18a;
   --alt-color: #c28080;
+  --heart-color: #e681aa;
   --alt-bg-color: #f4f0f0;
   --dark-color: #282c34;
   --dark-grey-color: #d2d2d2;
   --light-grey-color: #eaeaea;
   --light-color: #f9f9f9;
   --white-color: #ffffff;
-  --red-color: #ff0000;
+  --red-color: #b30606;
 
   font-family: "MapoGoldenPier";
   font-size: 20px;
@@ -205,6 +206,7 @@ h2 {
   font-weight: normal;
   &.english {
     font-family: "Allura";
+    font-size: 2rem;
   }
 }
 
