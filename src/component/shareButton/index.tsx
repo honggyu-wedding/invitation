@@ -14,24 +14,17 @@ import { useKakao } from "../store"
 const baseUrl = import.meta.env.BASE_URL
 
 export const ShareButton = () => {
-  const { kakao } = useKakao()
+  const kakao = useKakao()
   return (
     <LazyDiv className="footer share-button">
       <button
         className="ktalk-share"
         onClick={() => {
-          console.log("Kakao Share button clicked.")
           if (!kakao) {
-            console.error("Kakao SDK not loaded yet.")
             return
           }
 
-          if (!kakao.isInitialized()) {
-            console.error("Kakao SDK not initialized.")
-            return
-          }
-
-          const shareContent = {
+          kakao.Share.sendDefault({
             objectType: "location",
             address: SHARE_ADDRESS,
             addressTitle: SHARE_ADDRESS_TITLE,
@@ -44,7 +37,7 @@ export const ShareButton = () => {
                 "//" +
                 window.location.host +
                 baseUrl +
-                "/preview_image.jpg",
+                "/preview_image.png",
               link: {
                 mobileWebUrl:
                   window.location.protocol +
@@ -75,17 +68,7 @@ export const ShareButton = () => {
                 },
               },
             ],
-          }
-          
-          console.log("Attempting to send Kakao Share with content:", shareContent)
-
-          kakao.Share.sendDefault(shareContent)
-            .then((res: any) => {
-              console.log("Kakao Share success:", res)
-            })
-            .catch((err: any) => {
-              console.error("Kakao Share failed:", err)
-            })
+          })
         }}
       >
         <img src={ktalkIcon} alt="ktalk-icon" /> 카카오톡으로 공유하기
