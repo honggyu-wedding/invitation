@@ -144,7 +144,7 @@ const NaverMap = () => {
           }}
         >
           <img src={knaviIcon} alt="kakao-navi-icon" />
-          카카오 내비
+          카카오맵
         </button>
         <button
           onClick={() => {
