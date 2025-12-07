@@ -36,7 +36,8 @@ export const Information2 = () => {
           넓은 마음으로 양해 부탁드립니다.
         </div>
         <div className="content">
-          여건상 부득이하게 화환은 정중히 사양합니다.
+          <br />
+          여건 상 부득이하게 화환은 정중히 사양합니다.
           <br />
           좋은 마음만 감사히 받겠습니다. 
         </div>

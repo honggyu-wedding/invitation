@@ -343,15 +343,71 @@ export const Gallery = () => {
           </div>
         </div>
         <div className="carousel-indicator">
-          {CAROUSEL_ITEMS.map((_, idx) => (
-            <button
-              key={idx}
-              className={`indicator${idx === slide ? " active" : ""}`}
-              onClick={() =>
-                onIndicatorClick(statusRef.current, slideRef.current, idx)
+          {CAROUSEL_ITEMS.length > 0 && (
+            (() => {
+              const totalItems = CAROUSEL_ITEMS.length;
+              const MAX_VISIBLE_INDICATORS = 7; // Max 7 indicators visible
+              const halfVisible = Math.floor(MAX_VISIBLE_INDICATORS / 2);
+
+              // Determine the range of indicators to show
+              let startIdx = 0;
+              let endIdx = totalItems - 1;
+
+              if (totalItems > MAX_VISIBLE_INDICATORS) {
+                startIdx = Math.max(0, slide - halfVisible);
+                endIdx = Math.min(totalItems - 1, slide + halfVisible);
+
+                // Adjust window if near boundaries
+                if (startIdx === 0) {
+                  endIdx = MAX_VISIBLE_INDICATORS - 1;
+                } else if (endIdx === totalItems - 1) {
+                  startIdx = totalItems - MAX_VISIBLE_INDICATORS;
+                }
               }
-            />
-          ))}
+
+              const indicatorsToRender = [];
+
+              // Left ellipsis
+              if (totalItems > MAX_VISIBLE_INDICATORS && startIdx > 0) {
+                indicatorsToRender.push(
+                  <button
+                    key="ellipsis-left"
+                    className="indicator ellipsis"
+                    onClick={() => onIndicatorClick(statusRef.current, slideRef.current, 0)}
+                  >
+                    &lsaquo;
+                  </button>
+                );
+              }
+
+              // Visible indicators
+              for (let idx = startIdx; idx <= endIdx; idx++) {
+                indicatorsToRender.push(
+                  <button
+                    key={idx}
+                    className={`indicator${idx === slide ? " active" : ""}`}
+                    onClick={() =>
+                      onIndicatorClick(statusRef.current, slideRef.current, idx)
+                    }
+                  />
+                );
+              }
+
+              // Right ellipsis
+              if (totalItems > MAX_VISIBLE_INDICATORS && endIdx < totalItems - 1) {
+                indicatorsToRender.push(
+                  <button
+                    key="ellipsis-right"
+                    className="indicator ellipsis"
+                    onClick={() => onIndicatorClick(statusRef.current, slideRef.current, totalItems - 1)}
+                  >
+                    &rsaquo;
+                  </button>
+                );
+              }
+              return indicatorsToRender;
+            })()
+          )}
         </div>
       </div>
 
